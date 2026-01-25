@@ -4,13 +4,22 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Neobrutalism Custom Colors */
+  /* RetroUI Pro Color Palette */
   --color-brutal-black: #000000;
   --color-brutal-white: #FFFFFF;
   --color-brutal-coral: #FF6B35;
   --color-brutal-yellow: #F7CB15;
   --color-brutal-cyan: #00D9FF;
   --color-brutal-border: #000000;
+
+  /* RetroUI Pro Extended Colors */
+  --color-retro-violet: #A8A6FF;
+  --color-retro-pink: #FFA6F6;
+  --color-retro-red: #FF9F9F;
+  --color-retro-orange: #FFC29F;
+  --color-retro-yellow: #FFF066;
+  --color-retro-lime: #B8FF9F;
+  --color-retro-cyan: #A6FAFF;
 
   /* Shadows */
   --shadow-brutal-sm: 2px 2px 0px #000000;
@@ -20,7 +29,10 @@
   /* Base System Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Pretendard Variable', 'Inter', -apple-system, sans-serif;
+
+  /* Typography */
+  --font-sans: 'Space Grotesk', 'Pretendard Variable', -apple-system, sans-serif;
+
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -38,27 +50,23 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  /* Border Radius - Brutal style (minimal) */
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 2px;
-  --radius-2xl: 4px;
-  --radius-3xl: 6px;
-  --radius-4xl: 8px;
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
 :root {
-  /* Neobrutalism Design System */
-  --radius: 0px;
-  --background: #FFFFFF;
+  --radius: 0.5rem;
+  --background: #FEF9E1;
   --foreground: #000000;
   --card: #FFFFFF;
   --card-foreground: #000000;
   --popover: #FFFFFF;
   --popover-foreground: #000000;
-  --primary: #000000;
-  --primary-foreground: #FFFFFF;
+  --primary: #F7CB15;
+  --primary-foreground: #000000;
   --secondary: #F5F5F5;
   --secondary-foreground: #000000;
   --muted: #F5F5F5;
@@ -72,23 +80,23 @@
 }
 
 .dark {
-  --background: #000000;
+  --background: #1A1A1A;
   --foreground: #FFFFFF;
-  --card: #1A1A1A;
+  --card: #262626;
   --card-foreground: #FFFFFF;
-  --popover: #1A1A1A;
+  --popover: #262626;
   --popover-foreground: #FFFFFF;
-  --primary: #FFFFFF;
+  --primary: #F7CB15;
   --primary-foreground: #000000;
-  --secondary: #262626;
+  --secondary: #333333;
   --secondary-foreground: #FFFFFF;
-  --muted: #262626;
+  --muted: #333333;
   --muted-foreground: #A3A3A3;
   --accent: #FF6B35;
   --accent-foreground: #FFFFFF;
   --destructive: #DC2626;
-  --border: #FFFFFF;
-  --input: #FFFFFF;
+  --border: #404040;
+  --input: #404040;
   --ring: #00D9FF;
 }
 
@@ -102,27 +110,30 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Typography */
   h1 {
-    @apply text-5xl font-black tracking-tight leading-tight;
+    font-family: 'Archivo Black', sans-serif;
+    @apply text-5xl tracking-tight leading-tight;
     letter-spacing: -0.02em;
   }
 
   h2 {
-    @apply text-4xl font-extrabold tracking-tight leading-tight;
+    font-family: 'Archivo Black', sans-serif;
+    @apply text-4xl tracking-tight leading-tight;
     letter-spacing: -0.01em;
   }
 
   h3 {
-    @apply text-2xl font-bold leading-snug;
+    font-family: 'Archivo Black', sans-serif;
+    @apply text-2xl leading-snug;
   }
 
   h4 {
-    @apply text-xl font-bold leading-normal;
+    font-family: 'Archivo Black', sans-serif;
+    @apply text-xl leading-normal;
   }
 }
 
-/* Brutal Utility Classes */
+/* RetroUI Pro Utility Classes */
 @layer utilities {
   .shadow-brutal {
     box-shadow: 4px 4px 0px #000;
@@ -141,24 +152,206 @@
   }
 
   .border-brutal {
-    border: 3px solid #000;
+    border: 2px solid #000;
   }
 
   .border-brutal-white {
-    border: 3px solid #FFF;
+    border: 2px solid #FFF;
   }
 
-  .hover-brutal {
-    transition: transform 0.1s ease;
+  /* RetroUI Pro Outlined Text - Cursive Style */
+  .text-outlined {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-style: italic;
   }
 
-  .hover-brutal:hover {
+  .font-head {
+    font-family: 'Archivo Black', sans-serif;
+  }
+
+  .font-cursive {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+  }
+
+  /* RetroUI Pro Button */
+  .btn-retro {
+    font-family: 'Archivo Black', sans-serif;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
+    transition: all 0.15s ease;
+  }
+
+  .btn-retro:hover {
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #000;
   }
 
-  .hover-brutal:active {
-    transform: translate(4px, 4px);
+  .btn-retro:active {
     box-shadow: none;
+    transform: translate(4px, 4px);
   }
+
+  .btn-retro:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* RetroUI Pro Card */
+  .card-retro {
+    border: 2px solid #000;
+    border-radius: 0.75rem;
+    background: white;
+    transition: all 0.2s ease;
+  }
+
+  .card-retro:hover {
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+    transform: translate(-2px, -2px);
+  }
+
+  /* RetroUI Pro Input */
+  .input-retro {
+    border: 2px solid #000;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
+    transition: all 0.15s ease;
+  }
+
+  .input-retro:focus {
+    outline: none;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+    transform: translate(2px, 2px);
+  }
+
+  /* RetroUI Pro Badge */
+  .badge-retro {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 2px solid #000;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: #F7CB15;
+  }
+
+  /* RetroUI Pro Color Backgrounds */
+  .bg-retro-violet {
+    background-color: #A8A6FF;
+  }
+
+  .bg-retro-pink {
+    background-color: #FFA6F6;
+  }
+
+  .bg-retro-red {
+    background-color: #FF9F9F;
+  }
+
+  .bg-retro-orange {
+    background-color: #FFC29F;
+  }
+
+  .bg-retro-yellow {
+    background-color: #FFF066;
+  }
+
+  .bg-retro-lime {
+    background-color: #B8FF9F;
+  }
+
+  .bg-retro-cyan {
+    background-color: #A6FAFF;
+  }
+
+  .bg-cream {
+    background-color: #FEF9E1;
+  }
+
+  /* RetroUI Pro Color Text */
+  .text-retro-violet {
+    color: #A8A6FF;
+  }
+
+  .text-retro-pink {
+    color: #FFA6F6;
+  }
+
+  .text-retro-red {
+    color: #FF9F9F;
+  }
+
+  .text-retro-orange {
+    color: #FFC29F;
+  }
+
+  .text-retro-yellow {
+    color: #FFF066;
+  }
+
+  .text-retro-lime {
+    color: #B8FF9F;
+  }
+
+  .text-retro-cyan {
+    color: #A6FAFF;
+  }
+}
+
+/* Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes news-ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-news-ticker {
+  animation: news-ticker 25s linear infinite;
+}
+
+.animate-news-ticker:hover {
+  animation-play-state: paused;
+}
+
+.border-3 {
+  border-width: 3px;
 }

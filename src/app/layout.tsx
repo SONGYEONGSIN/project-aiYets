@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import AuthProvider from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
   title: "AI 연말정산 계산기",
@@ -35,7 +36,7 @@ export default function RootLayout({
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -43,12 +44,14 @@ export default function RootLayout({
         className="antialiased flex flex-col min-h-screen bg-background text-foreground font-sans"
         suppressHydrationWarning
       >
-        <Header />
-        <main className="flex-1 container mx-auto px-4 py-8 md:px-6">
-          {children}
-        </main>
-        <Footer />
-        <Toaster />
+        <AuthProvider>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );
